@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  > span {
+    font-weight: 500;
+  }
+}
+
+.desktopHeader {
+  @extend .header;
+  > span {
+    font-size: 50px;
+  }
+}
+
+.mobileHeader {
+  @extend .header;
+  > span {
+    font-size: 30px;
+  }
+}
