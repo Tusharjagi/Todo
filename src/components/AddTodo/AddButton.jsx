@@ -1,15 +1,18 @@
 import React from "react";
-import { Button } from "@mui/joy";
 import { Grid } from "@mui/material";
+import CustomButton from "../common/CustomButton";
 import { textConst } from "../../common/textConst";
 import styles from "../styles/addButton.module.scss";
 
 const AddButton = () => {
   return (
     <Grid className={styles.add_button}>
-      <Button color="success" size="lg" variant="soft">
-        {textConst.addTodo}
-      </Button>
+      <CustomButton
+        color="success"
+        size="lg"
+        variant="soft"
+        text={textConst.addTodo}
+      />
     </Grid>
   );
 };
