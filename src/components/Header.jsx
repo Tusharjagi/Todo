@@ -6,8 +6,9 @@ import { isMobileDevice } from "../common/common";
 
 const Header = () => {
   const isMobile = isMobileDevice();
+
   return (
-    <Grid className={isMobile ? styles.mobileHeader : styles.desktopHeader}>
+    <Grid className={isMobile ? styles.mobile_header : styles.desktop_header}>
       <span>{textConst.todoApp}</span>
     </Grid>
   );
