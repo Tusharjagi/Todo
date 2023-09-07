@@ -8,7 +8,11 @@ const TodoCard = () => {
   const isMobile = isMobileDevice();
   return (
     <Grid className={isMobile ? styles.card_mobile : styles.card_desktop}>
-      <Card color="success">Hello</Card>
+      <Card color="success">
+        <span>
+          HelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHelloHellolloHelloHelloHelloHelloHelloHellolloHelloHelloHelloHelloHelloHellolloHelloHelloHelloHelloHelloHellolloHelloHelloHelloHelloHelloHellolloHelloHelloHelloHelloHelloHellolloHelloHelloHelloHelloHelloHello
+        </span>
+      </Card>
     </Grid>
   );
 };

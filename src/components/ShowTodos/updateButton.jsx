@@ -8,7 +8,7 @@ import { isMobileDevice } from "../../common/common";
 const UpdateButton = () => {
   const isMobile = isMobileDevice();
   return (
-    <Grid>
+    <Grid style={{ padding: "0 15px" }}>
       <CustomButton
         size="lg"
         text={!isMobile && textConst.update}

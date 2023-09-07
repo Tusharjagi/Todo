@@ -1,7 +1,17 @@
+.card_base {
+  div > span {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
 .card_desktop {
+  @extend .card_base;
   min-width: calc(100% - 280px);
 }
 
 .card_mobile {
+  @extend .card_base;
   min-width: calc(100% - 170px);
 }
