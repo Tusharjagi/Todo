@@ -1,0 +1,24 @@
+@import "../../styles/_colors";
+
+.show_todo_wrapper {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: $lightGreen;
+}
+
+.show_todo_wrapper_desktop {
+  @extend .show_todo_wrapper;
+  margin: 10px 15%;
+}
+
+.show_todo_wrapper_mobile {
+  @extend .show_todo_wrapper;
+  margin: 10px 1%;
+}
+
+.todo_items {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  margin-bottom: 5px;
+}
