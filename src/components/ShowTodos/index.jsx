@@ -5,9 +5,13 @@ import { isMobileDevice } from "../../common/common";
 import TodoCard from "./TodoCard";
 import DeleteButton from "./deleteButton";
 import UpdateButton from "./updateButton";
+import { useSelector } from "react-redux";
 
 const ShowTodo = () => {
   const isMobile = isMobileDevice();
+
+  const todo = useSelector((state) => state.todo);
+
   return (
     <Grid
       className={
@@ -16,11 +20,15 @@ const ShowTodo = () => {
           : styles.show_todo_wrapper_desktop
       }
     >
-      <Grid className={styles.todo_items}>
-        <TodoCard />
-        <UpdateButton />
-        <DeleteButton />
-      </Grid>
+      {todo.map((item, id) => {
+        return (
+          <Grid className={styles.todo_items} key={id}>
+            <TodoCard item={item} />
+            <UpdateButton />
+            <DeleteButton />
+          </Grid>
+        );
+      })}
     </Grid>
   );
 };

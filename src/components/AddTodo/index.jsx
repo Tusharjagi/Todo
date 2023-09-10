@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid } from "@mui/material";
 import TodoInput from "./TodoInput";
 import AddButton from "./AddButton";
@@ -7,6 +7,8 @@ import { isMobileDevice } from "../../common/common";
 
 const AddTodo = () => {
   const isMobile = isMobileDevice();
+  const [inputData, setInputData] = useState("");
+
   return (
     <Grid
       className={
@@ -15,8 +17,8 @@ const AddTodo = () => {
           : styles.add_todo_wrapper_desktop
       }
     >
-      <TodoInput />
-      <AddButton />
+      <TodoInput {...{ inputData, setInputData }} />
+      <AddButton {...{ inputData, setInputData }} />
     </Grid>
   );
 };

@@ -3,7 +3,11 @@ import Input from "@mui/joy/Input";
 import { Grid } from "@mui/material";
 import { textConst } from "../../common/textConst";
 
-const TodoInput = () => {
+const TodoInput = ({ inputData, setInputData }) => {
+  const handleOnChange = (event) => {
+    setInputData(event.target.value);
+  };
+
   return (
     <Grid>
       <Input
@@ -11,6 +15,8 @@ const TodoInput = () => {
         variant="outlined"
         color="success"
         size="lg"
+        onChange={(event) => handleOnChange(event)}
+        value={inputData}
       />
     </Grid>
   );
