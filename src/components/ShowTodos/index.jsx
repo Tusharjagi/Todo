@@ -13,23 +13,27 @@ const ShowTodo = () => {
   const todo = useSelector((state) => state.todo);
 
   return (
-    <Grid
-      className={
-        isMobile
-          ? styles.show_todo_wrapper_mobile
-          : styles.show_todo_wrapper_desktop
-      }
-    >
-      {todo.map((item, id) => {
-        return (
-          <Grid className={styles.todo_items} key={id}>
-            <TodoCard item={item} />
-            <UpdateButton />
-            <DeleteButton />
-          </Grid>
-        );
-      })}
-    </Grid>
+    <>
+      {todo.length ? (
+        <Grid
+          className={
+            isMobile
+              ? styles.show_todo_wrapper_mobile
+              : styles.show_todo_wrapper_desktop
+          }
+        >
+          {todo.map((item, id) => {
+            return (
+              <Grid className={styles.todo_items} key={id}>
+                <TodoCard item={item} />
+                <UpdateButton />
+                <DeleteButton />
+              </Grid>
+            );
+          })}
+        </Grid>
+      ) : null}
+    </>
   );
 };
 
