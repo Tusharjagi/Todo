@@ -5,8 +5,13 @@ import CustomButton from "../common/CustomButton";
 import { textConst } from "../../common/textConst";
 import { isMobileDevice } from "../../common/common";
 
-const DeleteButton = () => {
+const DeleteButton = ({ item }) => {
   const isMobile = isMobileDevice();
+
+  const handleDeleteTodo = () => {
+    console.log(item.id);
+  };
+
   return (
     <Grid>
       <CustomButton
@@ -15,6 +20,7 @@ const DeleteButton = () => {
         color="danger"
         icon={<DeleteIcon />}
         isMobile={isMobile}
+        onClick={handleDeleteTodo}
       />
     </Grid>
   );

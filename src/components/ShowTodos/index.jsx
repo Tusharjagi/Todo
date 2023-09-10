@@ -25,9 +25,9 @@ const ShowTodo = () => {
           {todo.map((item, id) => {
             return (
               <Grid className={styles.todo_items} key={id}>
-                <TodoCard item={item} />
-                <UpdateButton />
-                <DeleteButton />
+                <TodoCard {...{ item }} />
+                <UpdateButton {...{ item }} />
+                <DeleteButton {...{ item }} />
               </Grid>
             );
           })}
