@@ -3,7 +3,7 @@ const app = express();
 const router = express.Router();
 
 const arr = [];
-router.post("/", (req, res) => {
+router.post("/postTodo", (req, res) => {
   const { todo } = req.body;
   const data = {
     id: arr.length + 1,
@@ -14,7 +14,7 @@ router.post("/", (req, res) => {
   res.status(200).send(data);
 });
 
-router.get("/", (req, res) => {
+router.get("/getAllTodo", (req, res) => {
   res.status(200).send(arr);
 });
 
