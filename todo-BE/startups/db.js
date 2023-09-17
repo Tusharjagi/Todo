@@ -1,8 +1,9 @@
 const logger = require("../logger/logger");
 const mongoose = require("mongoose");
+const config = require("config");
 
 module.exports = function () {
-  const mongoDb = "mongodb://localhost/todoApp";
+  const mongoDb = config.get("db");
   mongoose
     .connect(mongoDb)
     .then(() => logger.info(`Connect to mongoDB ${mongoDb}`))
