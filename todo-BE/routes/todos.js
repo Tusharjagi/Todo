@@ -20,7 +20,7 @@ router.post("/postTodo", async (req, res) => {
   res.send(todo);
 });
 
-router.put("/deleteTodo/:id", async (req, res) => {
+router.put("/updateTodo/:id", async (req, res) => {
   const { error } = validateTodo(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -31,6 +31,13 @@ router.put("/deleteTodo/:id", async (req, res) => {
     },
     { new: true }
   );
+
+  if (!todo) return res.status(400).send(`The todo given ID was not found.`);
+  res.send(todo);
+});
+
+router.delete("/deleteTodo/:id", async (req, res) => {
+  const todo = await TodoModel.findByIdAndRemove(req.params.id);
 
   if (!todo) return res.status(400).send(`The todo given ID was not found.`);
   res.send(todo);
