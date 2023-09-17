@@ -1,17 +1,18 @@
 const express = require("express");
-const app = express();
 const router = express.Router();
+const { validateTodo, TodoModel } = require("../models/todo");
 
-const arr = [];
-router.post("/postTodo", (req, res) => {
-  const { todo } = req.body;
-  const data = {
-    id: arr.length + 1,
-    todo,
-  };
-  arr.push(data);
-  console.log(arr);
-  res.status(200).send(data);
+router.post("/postTodo", async (req, res) => {
+  const { error } = validateTodo(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let todo = new TodoModel({
+    todo: req.body.todo,
+  });
+
+  todo = await todo.save();
+
+  res.send(todo);
 });
 
 router.get("/getAllTodo", (req, res) => {

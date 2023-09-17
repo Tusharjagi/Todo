@@ -1,9 +1,14 @@
 const express = require("express");
 const app = express();
 
+// Logger
 const logger = require("./logger/logger");
 
+// Routes
 const todo = require("./routes/todos");
+
+// DataBase
+require("./startups/db")();
 
 app.use(express.json());
 app.use("/api/todo", todo);
